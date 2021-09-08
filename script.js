@@ -85,7 +85,7 @@ async function main() {
                     </div>
 
                     <div class="d-flex justify-content-between">
-                    <p class="card-title"><i class="fas fa-ruler-combined mr-2"></i>${size} SQM</p>
+                    <p class="card-title"><i class="fas fa-ruler-horizontal mr-2"></i>${size} SQM</p>
                     
                     </div>
                     
@@ -94,7 +94,7 @@ async function main() {
                 </div>
             </div>
         `).openPopup();
-        
+
         return marker;
     }
 
