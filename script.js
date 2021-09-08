@@ -89,7 +89,7 @@ async function main() {
                     </div>
                     
                     <p class="card-text mt-2 pb-2 border-bottom">${desc}</p>
-                    <a href="https://wa.me/6282146333864?text=I'm%20interested%20to%20buy%20${name}" class="text-white btn btn-success"><i class="fab fa-whatsapp"></i> Contact Us</a>
+                    <a href="https://wa.me/62821463338644?text=I'm%20interested%20to%20buy%20${name}" class="text-white btn btn-success"><i class="fab fa-whatsapp"></i> Contact Us</a>
                 </div>
             </div>
         `).openPopup();
