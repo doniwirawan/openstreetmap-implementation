@@ -28,6 +28,12 @@
     transform: scale(1.1);
     transition: all 2s;
 }
+.feature{
+    height: 40px;
+}
+.title-price{
+    height: 20px;
+}
  .card{
      border: none;
  }

@@ -76,20 +76,19 @@ async function main() {
         let marker = L.marker(latLng).addTo(map);
         marker.bindPopup(
             `
-           <div class="card mt-3" style="width: 18rem;">
+           <div class="card  mt-3" style="width: 18rem;">
                 <img src="${link}" class="card-img-top" alt="${name}">
                 <div class="card-body p-0 py-2">
-                    <div class="d-flex justify-content-between">
+                    <div class="title-price d-flex justify-content-between">
                     <h5 class="card-title font-weight-bold">${name}</h5>
                     <h6 class="text-warning pt-1"><i class="fas fa-money-bill-alt"></i> IDR ${currency(price)}</h6>
                     </div>
 
-                    <div class="d-flex justify-content-between">
-                    <p class="card-title"><i class="fas fa-ruler-horizontal mr-2"></i>${size} SQM</p>
-                    
+                    <div class="feature d-flex  border-bottom">
+                        <p><i class="fas fa-ruler-horizontal mr-2"></i>${size} SQM</p>
                     </div>
                     
-                    <p class="card-text mt-1">${desc}</p>
+                    <p class="card-text mt-2 pb-2 border-bottom">${desc}</p>
                     <a href="https://wa.me/6282146333864?text=I'm%20interested%20to%20buy%20${name}" class="text-white btn btn-success"><i class="fab fa-whatsapp"></i> Contact Us</a>
                 </div>
             </div>
