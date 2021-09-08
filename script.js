@@ -1,32 +1,6 @@
 async function main() {
 
-
-    function createMap(elemId, centerLat, centerLng, zoom) {
-        var map = new L.Map(elemId);
-        console.log(map)
-
-        // Data provider
-        var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        var osmAttrib = 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors';
-
-        // Layer
-        var osmLayer = new L.TileLayer(osmUrl, {
-            minZoom: 4,
-            maxZoom: 20,
-            attribution: osmAttrib
-        });
-
-        // Map
-        map.setView(new L.LatLng(centerLat, centerLng), zoom);
-        map.addLayer(osmLayer);
-        return map;
-    }
-
-    var map = createMap('map', -8.4561, 115.1999, 9);
-
-
-
-
+    // data 
     markersLatLngPic = [{
             point: [-8.5541842, 115.2405467],
             link: "https://images.unsplash.com/photo-1560103104-4623c14a473b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
@@ -63,16 +37,43 @@ async function main() {
 
     ];
 
+    // create map function
+    function createMap(elemId, centerLat, centerLng, zoom) {
+        let map = new L.Map(elemId);
+        console.log(map)
+
+        // Data provider
+        const osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        const osmAttrib = 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors';
+
+        // Layer
+        const osmLayer = new L.TileLayer(osmUrl, {
+            minZoom: 4,
+            maxZoom: 20,
+            attribution: osmAttrib
+        });
+
+        // Map
+        map.setView(new L.LatLng(centerLat, centerLng), zoom);
+        map.addLayer(osmLayer);
+        return map;
+    }
+
+    // initialize map
+    const map = createMap('map', -8.4561, 115.1999, 9);
+
+
+    // change the currency
     function currency(angka) {
-        var reverse = angka.toString().split('').reverse().join(''),
+        let reverse = angka.toString().split('').reverse().join(''),
             ribuan = reverse.match(/\d{1,3}/g);
         ribuan = ribuan.join('.').split('').reverse().join('');
         return ribuan;
     }
 
-
+    // add pin point and pop up
     function addPopUp(map, latLng, link, name, desc, price, size) {
-        var marker = L.marker(latLng).addTo(map);
+        let marker = L.marker(latLng).addTo(map);
         marker.bindPopup(
             `
            <div class="card mt-3" style="width: 18rem;">
@@ -93,19 +94,17 @@ async function main() {
                 </div>
             </div>
         `).openPopup();
+        
         return marker;
     }
 
 
 
-
+    // loop through the data
     markersLatLngPic.forEach((latLng) => {
-        console.log(latLng)
+        // adding pop up and pin point
         addPopUp(map, latLng.point, latLng.link, latLng.name, latLng.desc, latLng.price, latLng.size);
     });
-
-
-
 
 
 }
